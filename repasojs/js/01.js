@@ -13,7 +13,7 @@ const JS = {
 };
 
 
-let {version, frameworks} = JS;
+let {version, theFrameworks} = JS;
 
 
-console.log(version, frameworks, c);
+console.log(version, theFrameworks);
