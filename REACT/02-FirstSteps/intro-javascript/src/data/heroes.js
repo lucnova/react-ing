@@ -26,9 +26,15 @@ const heroes = [
         owner: 'Marvel'
     },
 ];
+
 const owners = ['DC', 'Marvel'];
+
+const getHeroByID = (id) => {
+    return heroes.find((currHero) => currHero.id === id);
+}
 
 export {
     heroes as default,  // CON ESTO INDICO QUE ES POR DEFECTO
-    owners
+    owners,
+    getHeroByID
 };
