@@ -1,13 +1,17 @@
-import React from 'react'
+import React from "react";
 
-
-/* Functional Component */
-/**
- * También existen otros tipos de componentes como el de Clases, pero Functional 
- * parece ser lo que React está implementando.
- */
 const FirstApp = () => {
-    return <h1>Yooo</h1>;
-}
+	const title = "Eu te amo";
+	const imgSrc = "https://pbs.twimg.com/media/EqNM6G3XYAAUe14.jpg";
+
+	return (
+		<>
+			<h1>{title}</h1>
+			<p>macaquinho chupando pirulito azul</p>
+			<img src={imgSrc} alt="macaquinho chupando pirulito azul"></img>
+			<h1 className="desc">{title}</h1>
+		</>
+	);
+};
 
 export default FirstApp;
