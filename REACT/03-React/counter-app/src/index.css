@@ -3,8 +3,8 @@ body {
 	background-color: #00011b;
 	color: white;
 	font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
-	font-size: 2.5vw;
-    padding-left: 3rem;
+	font-size: 4vw;
+    padding-left: 2rem;
 }
 
 @keyframes example {
@@ -22,5 +22,5 @@ body {
 
 img {
 	animation: example 2s ease-in;
-	width: 18%;
+	width: 32%;
 }
