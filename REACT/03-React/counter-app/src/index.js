@@ -12,4 +12,4 @@ import './index.css';
 const myRoot = document.querySelector('#root');
 
 /* Renderizarlo: render(COMPONENTE, idDOM) */
-ReactDOM.render(<FirstApp title="Eu te amo" description="macaquinho chupando pirulito azul" />, myRoot);
+ReactDOM.render(<FirstApp title="Eu te amo" description="princeiza do cabeios naranjas" />, myRoot);
