@@ -1,8 +1,8 @@
 import React, { useState } from 'react'; // useState -> ES UN HOOK
 import PropTypes from 'prop-types';
 
-const CounterApp = ({ value }) => {
-	const [counter, setCounter] = useState(0); // useState trae un arreglo con DOS VALORES [var, hacerAlgo()]
+const CounterApp = ({ value = 0 }) => {
+	const [counter, setCounter] = useState(value); // useState trae un arreglo con DOS VALORES [var, hacerAlgo()]
 
 	/* ------------------------------- Handle ADD ------------------------------- */
 	const handleAdd = (e) => {
@@ -17,9 +17,9 @@ const CounterApp = ({ value }) => {
 
 	/* ------------------------------ Handle Reset ------------------------------ */
 	const handleReset = (e) => {
-		setCounter(0);
+		setCounter(value);
 	};
-    
+
 	return (
 		<>
 			<h1>CounterApp</h1>
