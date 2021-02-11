@@ -4,12 +4,15 @@
  */
 import React from 'react'; // COMPONENTE PRINCIPAL -> Da funciones de JSX tambien (leer nota)
 import ReactDOM from 'react-dom'; // MANIPULAR DOM
-import FirstApp from './FirstApp'; // COMPONENTE PROPIO
+//import FirstApp from './FirstApp'; // COMPONENTE PROPIO
+import CounterApp from './CounterApp';
 
-import './index.css';
+import './index.css';   // Incluir Estilos
 
 /* Obtengo la referencia del elemento DOM a renderizar el objeto */
 const myRoot = document.querySelector('#root');
 
 /* Renderizarlo: render(COMPONENTE, idDOM) */
-ReactDOM.render(<FirstApp title="Eu te amo" description="macaquinho" aBoolean={true} />, myRoot);
+//ReactDOM.render(<FirstApp aBoolean={true} />, myRoot);
+
+ReactDOM.render(<CounterApp value={666} />, myRoot);
