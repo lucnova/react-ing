@@ -7,6 +7,12 @@ body {
     padding-left: 2rem;
 }
 
+button {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1rem;
+}
+
 @keyframes example {
 	0% {
 		opacity: 0;
