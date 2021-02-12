@@ -1,0 +1,25 @@
+Pruebas
+    Unitarias
+        Son pruebas aplicadas a un unico objeto
+
+    Integracion
+        Son pruebas aplicadas a un objeto que incluye varios objetos en conjunto
+
+    
+    Una prueba debe tener los pasos AAA:
+        Arrange (Arreglar)
+            Se prepara el estado inicial; inicializacion de variables, importaciones necesarias
+            Se prepara el ambiente a probar.
+
+        Act (Actuar)
+            Aplicar estímulos; acciones como llamar métodos, simular clicks.
+            Se realizan acciones al paso anterior (Arrange)
+
+        Assert (Afirmar)
+            Observar el comportamiento resultante: Son los resultados esperados?
+                Ej. Que algo cambie, incremente o suceda, o que NADA suceda.
+
+SI NO HAY TIEMPO:
+    Definir ruta crítica de la APP -> Que es lo principal que quieres que tu APP haga.
+
+    Probar sobre esa ruta crítica.
