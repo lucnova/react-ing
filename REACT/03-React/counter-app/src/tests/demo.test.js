@@ -1,7 +1,14 @@
-test('MUST be true', function () {
-    const isActive = true;
+// JEST -> https://jestjs.io/
 
-    if(isActive) {
-        throw new Error('It ISNT true :(');
-    }
-})
+describe('Testing: demo.test.js', function () { // "Agrupar" las pruebas
+	test('MUST be same strings', function () {  // Definir la prueba
+		// 1.- Arrange
+		const aMessage = 'Hey There';
+
+		// 2.- Act
+		const otherMessage = `Hey There`;
+
+		// 3.- Observar Comportamiento
+		expect(aMessage).toBe(otherMessage);
+	});
+});
