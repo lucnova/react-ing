@@ -1,7 +1,7 @@
 import { getUser, getActiveUser } from '../../base/05-funciones';
 
 describe('-testing 05-funciones', () => {
-	test('"getUser" MUST return an Object', () => {
+	test('"getUser" MUST return same Object', () => {
 		const userExpected = {
 			uid: 'ABC123',
 			username: 'El_Papi1502',
@@ -12,7 +12,7 @@ describe('-testing 05-funciones', () => {
 		expect(userResult).toEqual(userExpected);
 	});
 
-	test('"getActiveUser" MUST return an Object', () => {
+	test('"getActiveUser" MUST return same Object', () => {
 		const testUsername = 'lucnova';
 		const userExpected = {
 			uid: 'ABC567',
