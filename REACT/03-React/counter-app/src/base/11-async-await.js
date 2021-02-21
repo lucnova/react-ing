@@ -1,32 +1,18 @@
-
-
-// const getImagenPromesa = () => new Promise( resolve => resolve('https://ajskdhaskjdhajs.com') )
-// getImagenPromesa().then( console.log );
-
-const getImagen = async() => {
-
-    try {
-
-        const apiKey = 'C1khQe3Z7R1W2lfTO9myKeuShdqFYSGC';
-        const resp   = await fetch(`http://api.giphy.com/v1/gifs/random?api_key=${ apiKey }`);
-        const { data } = await resp.json(); 
-
-        const { url } = data.images.original;
-
-        const img = document.createElement('img');
-        img.src = url;
-        document.body.append( img );
-
-    } catch (error) {
-        // manejo del error
-        console.error(error)
-    }
+export const fetchAndShowGIF = async (searchTerm) => {
+    const apiKey = 'VXAD1LH05QB9';
+    const url = `https://api.tenor.com/v1/random?key=${apiKey}&q=${searchTerm}&limit=1`;
     
-    
-    
-}
+	try {
+		const myTenorFetchResponse = await fetch(url);
+		const jsonResponse = await myTenorFetchResponse.json();
 
- getImagen();
+		const { results } = jsonResponse;
 
-
-
+		for (const currentSearchResult of results) {
+			const gifURL = currentSearchResult.media[0].loopedmp4.url;
+			return gifURL;
+		}
+	} catch (error) {
+		return error;
+	}
+};
