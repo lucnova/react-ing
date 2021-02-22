@@ -4,8 +4,8 @@
  */
 import React from 'react'; // COMPONENTE PRINCIPAL -> Da funciones de JSX tambien (leer nota)
 import ReactDOM from 'react-dom'; // MANIPULAR DOM
-//import FirstApp from './FirstApp'; // COMPONENTE PROPIO
-import CounterApp from './CounterApp';
+import FirstApp from './FirstApp'; // COMPONENTE PROPIO
+//import CounterApp from './CounterApp';
 
 import './index.css';   // Incluir Estilos
 
@@ -13,6 +13,6 @@ import './index.css';   // Incluir Estilos
 const myRoot = document.querySelector('#root');
 
 /* Renderizarlo: render(COMPONENTE, idDOM) */
-//ReactDOM.render(<FirstApp aBoolean={true} />, myRoot);
+ReactDOM.render(<FirstApp title={'Yo Opino'} description={'Opinando'} />, myRoot);
 
-ReactDOM.render(<CounterApp value={666} />, myRoot);
+//ReactDOM.render(<CounterApp value={666} />, myRoot);
