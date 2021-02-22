@@ -10,7 +10,6 @@ const FirstApp = ({ title, description, aBoolean }) => {
 			<h1>{title}</h1>
 			<p>{description}</p>
 			<img src={imgSrc} alt={description}></img>
-			<h1 className="desc">{title}</h1>
 		</>
 	);
 };
@@ -23,8 +22,6 @@ FirstApp.propTypes = {
 
 /* VALORES POR DEFECTO */
 FirstApp.defaultProps = {
-	title: 'ES EL',
-	description: 'MACACO',
 	aBoolean: true,
 };
 
