@@ -1,0 +1,1 @@
+import '@testing-library/jest-dom/extend-expect'; // Esto se ejecutará con cada prueba, es incluido para testear componentes
