@@ -15,4 +15,4 @@ const myRoot = document.querySelector('#root');
 /* Renderizarlo: render(COMPONENTE, idDOM) */
 //ReactDOM.render(<FirstApp title={'Yo Opino'} description={'Opinando'} />, myRoot);
 
-ReactDOM.render(<CounterApp value={1} />, myRoot);
+ReactDOM.render(<CounterApp value={0} />, myRoot);
