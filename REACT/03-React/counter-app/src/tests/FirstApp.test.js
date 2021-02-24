@@ -2,7 +2,7 @@
  * Probando Componentes con JEST
  */
 //import { render } from '@testing-library/react'; // - Pruebas Nativas -
-import '@testing-library/jest-dom'; // Para probar DOM en JEST
+//import '@testing-library/jest-dom'; // Para probar DOM en JEST *NOTA: No es necesario incluirlo para estas pruebas
 import { shallow } from 'enzyme';
 
 import FirstApp from '../FirstApp'; // Componente a probar
