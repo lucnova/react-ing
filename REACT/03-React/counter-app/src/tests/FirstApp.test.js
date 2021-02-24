@@ -1,11 +1,23 @@
 /**
  * Probando Componentes con JEST
  */
+//import { render } from '@testing-library/react'; // - Pruebas Nativas -
+import '@testing-library/jest-dom'; // Para probar DOM en JEST
+import { shallow } from 'enzyme';
 
-import { render } from '@testing-library/react';
-import FirstApp from '../FirstApp';
+import FirstApp from '../FirstApp'; // Componente a probar
 
 describe('Testing <FirstApp /> Component', () => {
+	// - ENZYME -
+	test('SHOULD show <FirstApp /> correctly', () => {
+        const expectedTitle = 'Yo Opino';
+		const wrapper = shallow( <FirstApp title={expectedTitle}/> );
+
+        expect(wrapper).toMatchSnapshot();
+	});
+
+	// - Pruebas Nativas -
+	/*
 	test('MUST be string: "Yo Opino"', () => {
 		const expected = 'Yo Opino';
 
@@ -22,4 +34,5 @@ describe('Testing <FirstApp /> Component', () => {
 
         // SE USARÁ ENZYME
 	});
+    */
 });
