@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Testing <FirstApp /> Component SHOULD show <FirstApp /> correctly 1`] = `
+exports[`Testing <FirstApp /> Component SHOULD show <FirstApp /> just like the SnapShot 1`] = `
 <Fragment>
   <h1>
     Yo Opino
