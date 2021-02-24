@@ -9,11 +9,22 @@ import FirstApp from '../FirstApp'; // Componente a probar
 
 describe('Testing <FirstApp /> Component', () => {
 	// - ENZYME -
-	test('SHOULD show <FirstApp /> correctly', () => {
-        const expectedTitle = 'Yo Opino';
-		const wrapper = shallow( <FirstApp title={expectedTitle}/> );
+	test('SHOULD show <FirstApp /> just like the SnapShot', () => {
+		const sentTitle = 'Yo Opino';
+		const wrapper = shallow(<FirstApp title={sentTitle} />);
 
-        expect(wrapper).toMatchSnapshot();
+		expect(wrapper).toMatchSnapshot();
+	});
+
+	test('SHOULD show sent subtitle ', () => {
+		const sentTitle = 'Yo Opino';
+		const sentDescription = 'Opinando lo necesario';
+
+		const wrapper = shallow(<FirstApp title={sentTitle} description={sentDescription} />);
+
+        const searchedDescription = wrapper.find('p').text();
+
+        expect(searchedDescription).toBe(sentDescription);
 	});
 
 	// - Pruebas Nativas -
