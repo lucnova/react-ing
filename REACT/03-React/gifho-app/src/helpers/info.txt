@@ -1,0 +1,4 @@
+HELPERS:
+    Reciben un dato y retornan algo que no necesariamente es algo que redibuje.
+    
+    Manejan datos
