@@ -17,7 +17,7 @@ const AddCategory = ({ setCategories }) => {
 			setCategories((currCategories) => {
 				if (currCategories.findIndex((item) => item === trimmedValue) === -1) {
 					setInputValue(''); // Limpiar Input
-					return [...currCategories, trimmedValue];
+					return [trimmedValue, ...currCategories];
 				} else {
 					return currCategories;
 				}
