@@ -8,17 +8,22 @@ export const getGifs = async (categoryName) => {
 		const myTenorFetchResponse = await fetch(url);
 		const jsonResponse = await myTenorFetchResponse.json();
 
-		const { results } = jsonResponse;
+		console.log(jsonResponse);
 
-		const gifsData = results.map((gifInfo) => {
-			return {
-				id: gifInfo.id,
-				title: gifInfo.url,
-				url: gifInfo.media[0].gif.url,
-			};
-		});
+		if (jsonResponse.error === undefined) {
+			const { results } = jsonResponse;
+			const gifsData = results.map((gifInfo) => {
+				return {
+					id: gifInfo.id,
+					title: gifInfo.url,
+					url: gifInfo.media[0].gif.url,
+				};
+			});
 
-		return gifsData;
+			return gifsData;
+		} else {
+			return [jsonResponse.error];
+		}
 	} catch (error) {
 		return error;
 	}
