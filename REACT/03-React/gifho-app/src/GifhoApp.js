@@ -6,7 +6,7 @@ import GifCategoryGrid from './components/GifCategoryGrid';
 
 const GifhoApp = (props) => {
 	//const [categories, setCategories] = useState(['Pixel Art', 'Vinesauce', 'DDLC']);
-	const [categories, setCategories] = useState(['DDLC']);
+	const [categories, setCategories] = useState(['Pixel Art']);
 
 	return (
 		<>
