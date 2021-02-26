@@ -2,7 +2,8 @@ export const getGifs = async (categoryName) => {
 	let sanitizedSearchTerm = encodeURI(categoryName);
 
 	const apiKey = 'VXAD1LH05QB9';
-	const url = `https://g.tenor.com/v1/random?q="${sanitizedSearchTerm}"&contentfilter=off&key=${apiKey}&limit=5`;
+    const limit = 8;
+	const url = `https://g.tenor.com/v1/random?q="${sanitizedSearchTerm}"&contentfilter=off&key=${apiKey}&limit=${limit}`;
 
 	try {
 		const myTenorFetchResponse = await fetch(url);
