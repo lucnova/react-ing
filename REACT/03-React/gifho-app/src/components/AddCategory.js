@@ -27,8 +27,8 @@ const AddCategory = ({ setCategories }) => {
 
 	return (
 		<form onSubmit={handleSubmit}>
-			<input type="text" value={inputValue} placeholder="Category Name" onChange={handleInputChange}></input>
-			<button>Add Category</button>
+			<input type="text" value={inputValue} placeholder="Search" onChange={handleInputChange}></input>
+			<button>+</button>
 		</form>
 	);
 };
