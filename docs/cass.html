@@ -4,9 +4,8 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-		<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet" type="text/css" />
-
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans&display=swap" rel="stylesheet" />
 		<title>4 Cass</title>
 
 		<style>
@@ -20,9 +19,8 @@
 				border: solid 0px #fcfcfc;
 				border-radius: 8px;
 				box-sizing: border-box;
-				color: #ff3535;
 				flex: auto;
-				font-family: Ubuntu;
+				font-family: 'Merriweather Sans', sans-serif;
 				font-size: 3.2rem;
 				height: 512px;
 				outline: none;
@@ -30,8 +28,21 @@
 				padding-top: 64px;
 				resize: none;
 				text-align: center;
-				text-shadow: 2px 2px 8px black;
 				width: 100%;
+
+				animation: color-change 6s infinite;
+			}
+
+			@keyframes color-change {
+				0% {
+					color: #9E1221;
+				}
+				50% {
+					color: #9E1221;
+				}
+				100% {
+					color: #9E1221;
+				}
 			}
 
 			video {
@@ -76,7 +87,7 @@
 					var id = document.getElementById('typing-text');
 					if (CharacterPos != MsgArray[MsgIndex].length) {
 						MsgBuffer = MsgBuffer + MsgArray[MsgIndex].charAt(CharacterPos);
-						id.value = MsgBuffer + '_';
+						id.value = MsgBuffer;
 						delay = TypeDelay;
 						id.scrollTop = id.scrollHeight;
 					} else {
@@ -86,7 +97,7 @@
 						if (MsgIndex != MsgArray.length - 1) {
 							MsgIndex++;
 						} else {
-							MsgIndex = 0;
+							return;
 						}
 					}
 					CharacterPos++;
