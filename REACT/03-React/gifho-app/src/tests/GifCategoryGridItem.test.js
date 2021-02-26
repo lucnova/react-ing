@@ -17,4 +17,10 @@ describe('TEST on GifCategoryGridItem', () => {
 
 		expect(foundText).toBe(sentTitle);
 	});
+
+	test('should display a valid URL as img:src', () => {
+		const foundURL = wrapper.find('img').prop('src');
+
+		expect(foundURL).toBe(sentURL);
+	});
 });
