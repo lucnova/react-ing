@@ -3,6 +3,8 @@
  * 
  *  Hace el trabajo pesado, llama al helper para obtener los datos, los agarra y los reenvia devuelta
  *      con una nota sobre si cargaron o no.
+ * 
+ *  Puede incluso re-usarse en otros lados, pues retorna las imagenes con un estado adicional y maneja la carga
  */
 import { useEffect, useState } from 'react';
 import { getGifs } from '../helpers/getGifs';
