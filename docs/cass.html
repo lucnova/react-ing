@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet" type="text/css" />
+
+		<style>
+			#typing-text {
+				color: #ffffff;
+				border: solid 0px #fcfcfc;
+				text-align: center;
+				font-family: Ubuntu;
+				overflow: hidden;
+				background-color: #000000;
+				font-size: 32px;
+				border-radius: 8px;
+				padding: 8px;
+				height: 128px;
+				width: 512px;
+				outline: none;
+				resize: none;
+				box-sizing: border-box;
+			}
+		</style>
+	</head>
+	<body>
+		<textarea id="typing-text" readonly></textarea>
+
+		<script>
+			(function () {
+				var CharacterPos = 0;
+				var MsgBuffer = '';
+				var TypeDelay = 100;
+				var NxtMsgDelay = 1000;
+				var MsgIndex = 0;
+				var delay;
+				var MsgArray = ['Tu nombre tiene\nel tinte de los sueños\nque siempre vibro.'];
+
+				function StartTyping() {
+					var id = document.getElementById('typing-text');
+					if (CharacterPos != MsgArray[MsgIndex].length) {
+						MsgBuffer = MsgBuffer + MsgArray[MsgIndex].charAt(CharacterPos);
+						id.value = MsgBuffer + '_';
+						delay = TypeDelay;
+						id.scrollTop = id.scrollHeight;
+					} else {
+						delay = NxtMsgDelay;
+						MsgBuffer = '';
+						CharacterPos = -1;
+						if (MsgIndex != MsgArray.length - 1) {
+							MsgIndex++;
+						} else {
+							MsgIndex = 0;
+						}
+					}
+					CharacterPos++;
+					setTimeout(StartTyping, delay);
+				}
+				StartTyping();
+			})();
+		</script>
+	</body>
+</html>
