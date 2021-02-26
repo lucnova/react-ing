@@ -12,6 +12,7 @@ const GifhoApp = (props) => {
 		<>
 			<div>
 				<h2>Gifho!</h2>
+                <small>lucnova</small>
 				<hr />
 			</div>
 
