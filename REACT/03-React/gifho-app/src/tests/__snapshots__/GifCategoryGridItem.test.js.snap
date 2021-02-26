@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TEST on GifCategoryGridItem should display component correctly (as snapshot) 1`] = `
+<div
+  className="card animate__animated animate__bounceIn"
+>
+  <img
+    alt="Test"
+    src="https://localhost/algo.jpg"
+  />
+  <p>
+    Test
+  </p>
+</div>
+`;
