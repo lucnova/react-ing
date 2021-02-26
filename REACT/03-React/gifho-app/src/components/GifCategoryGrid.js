@@ -23,9 +23,9 @@ const GifCategoryGrid = ({ categoryName }) => {
     // {isLoading && <p>Loading...</p>} => {isLoading ? <p>Loading...</p> : null}
 	return (
 		<>
-			<h3>{categoryName}</h3>
+			<h3 className="animate__animated animate__fadeInUp">{categoryName}</h3>
 
-			{isLoading && <p>Loading...</p>}    
+			{isLoading && <p className='animate__animated animate__flash'>Loading...</p>}    
 
 			<div className="card-grid">
 				{images.map((img) => (
