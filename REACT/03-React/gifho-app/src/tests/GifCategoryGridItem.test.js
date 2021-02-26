@@ -1,15 +1,20 @@
-import React from 'react';
 import { shallow } from 'enzyme';
-import GifCategoryGridItem from '../components/GifCategoryGridItem';    // Mucho cuidado con exportaciones por defecto
+import { GifCategoryGridItem } from '../components/GifCategoryGridItem'; // Mucho cuidado con exportaciones por defecto
 // Si se cambia por defecto no se puede importar con {}
 
 describe('TEST on GifCategoryGridItem', () => {
 	const sentTitle = 'Test';
 	const sentURL = 'https://localhost/algo.jpg';
 
-	test('should display component correctly (as snapshot)', () => {
-		const wrapper = shallow(<GifCategoryGridItem url={sentURL} title={sentTitle} />);
+	const wrapper = shallow(<GifCategoryGridItem url={sentURL} title={sentTitle} />);
 
+	test('should display component correctly (as snapshot)', () => {
 		expect(wrapper).toMatchSnapshot();
+	});
+
+	test('should display same title inside his p element', () => {
+		const foundText = wrapper.find('p').text().trim();
+
+		expect(foundText).toBe(sentTitle);
 	});
 });
