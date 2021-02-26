@@ -1,14 +1,12 @@
 import React /*  useState, useEffect */ from 'react'; // useEffect -> Ejecutar código de manera condicional
 import PropTypes from 'prop-types';
 import { useFetchGifs } from '../hooks/useFetchGifs';
-// import { GifCategoryGridItem } from './GifCategoryGridItem';
+import { GifCategoryGridItem } from './GifCategoryGridItem';
 // import { getGifs } from '../helpers/getGifs';
 
 const GifCategoryGrid = ({ categoryName }) => {
 	// const [imgs, setImgs] = useState([]);
-	const {loading, data} = useFetchGifs();
-
-	console.log(loading);
+	const { loading:isLoading, data:images } = useFetchGifs(categoryName);
 
 	//  - USE EFECT -
 	//      Evita renderizar todo el código de nuevo para cuando hay cambios pequeños
@@ -22,15 +20,18 @@ const GifCategoryGrid = ({ categoryName }) => {
 	// 		});
 	// }, [categoryName]); // El arreglo contiene variables de las cuales useEffect se ejecutará denuevo
 
+    // {isLoading && <p>Loading...</p>} => {isLoading ? <p>Loading...</p> : null}
 	return (
 		<>
 			<h3>{categoryName}</h3>
-			{/* <div className="card-grid">
-				{imgs.map((img) => (
+
+			{isLoading && <p>Loading...</p>}    
+
+			<div className="card-grid">
+				{images.map((img) => (
 					<GifCategoryGridItem key={img.id} {...img} />
 				))}
-			</div> */}
-			{loading ? 'Loading...' : 'DONE'}
+			</div>
 		</>
 	);
 };
