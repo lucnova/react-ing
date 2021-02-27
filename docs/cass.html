@@ -6,12 +6,19 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" />
 		<link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans&display=swap" rel="stylesheet" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
 		<title>4 Cass</title>
 
 		<style>
 			body {
 				background-color: black;
 				text-align: center;
+				overflow: hidden;
+			}
+
+			#container {
+				width: 80%;
+				height: 80%;
 			}
 
 			#typing-text {
@@ -35,35 +42,38 @@
 
 			@keyframes color-change {
 				0% {
-					color: #e70017;
+					color: #ffffff;
 				}
 				50% {
-					color: #ff6272;
+					color: #ffdbdf;
 				}
 				100% {
-					color: #e70017;
+					color: #ffffff;
 				}
 			}
 
-			video {
-				min-height: 100%;
-				min-width: 100%;
-				height: auto;
-				width: auto;
-
-				position: fixed;
-				top: 50%;
+			.dot {
+				width: 35px;
+				height: 35px;
+				position: absolute;
+				background: url(https://image.ibb.co/kyUHab/rose.png);
+				background-size: 100% 100%;
+			}
+			#logo {
 				left: 50%;
-				transform: translateX(-50%) translateY(-50%);
-
-				z-index: -100;
-
-				background-size: cover;
+				top: 50%;
+				position: absolute;
+				border-radius: 10px;
 			}
 		</style>
 	</head>
 	<body>
-		<textarea id="typing-text" readonly></textarea>
+		<div>
+			<div id="container"></div>
+		</div>
+		<div>
+			<textarea id="typing-text" readonly></textarea>
+		</div>
 
 		<script>
 			(function () {
@@ -101,6 +111,44 @@
 					setTimeout(StartTyping, delay);
 				}
 				StartTyping();
+
+				/*
+                a Pen by DIACO : twitter.com/Diaco_ml  ||  codepen.io/MAW
+                powered by GSAP : https://www.greensock.com/
+                */
+				TweenLite.set('#container', { perspective: 600 });
+				TweenLite.set('img', { xPercent: '-50%', yPercent: '-50%' });
+
+				var total = 30;
+				var warp = document.getElementById('container'),
+					w = window.innerWidth,
+					h = window.innerHeight;
+
+				for (i = 0; i < total; i++) {
+					var Div = document.createElement('div');
+					TweenLite.set(Div, { attr: { class: 'dot' }, x: R(0, w), y: R(-200, -150), z: R(-200, 200) });
+					warp.appendChild(Div);
+					animm(Div);
+				}
+
+				function animm(elm) {
+					TweenMax.to(elm, R(6, 15), { y: h + 100, ease: Linear.easeNone, repeat: -1, delay: -15 });
+					TweenMax.to(elm, R(4, 8), { x: '+=100', rotationZ: R(0, 180), repeat: -1, yoyo: true, ease: Sine.easeInOut });
+					TweenMax.to(elm, R(2, 8), {
+						rotationX: R(0, 360),
+						rotationY: R(0, 360),
+						repeat: -1,
+						yoyo: true,
+						ease: Sine.easeInOut,
+						delay: -5,
+					});
+				}
+
+				function R(min, max) {
+					return min + Math.random() * (max - min);
+				}
+
+				// a Pen by DIACO : twitter.com/Diaco_ml  ||  codepen.io/MAW
 			})();
 		</script>
 	</body>
