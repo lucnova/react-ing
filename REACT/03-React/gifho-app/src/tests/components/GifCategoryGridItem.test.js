@@ -1,5 +1,5 @@
 import { shallow } from 'enzyme';
-import { GifCategoryGridItem } from '../components/GifCategoryGridItem'; // Mucho cuidado con exportaciones por defecto
+import { GifCategoryGridItem } from '../../components/GifCategoryGridItem'; // Mucho cuidado con exportaciones por defecto
 // Si se cambia por defecto no se puede importar con {}
 
 describe('TEST on GifCategoryGridItem', () => {
