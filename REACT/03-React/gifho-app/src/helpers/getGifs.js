@@ -8,9 +8,7 @@ export const getGifs = async (categoryName) => {
 	try {
 		const myTenorFetchResponse = await fetch(url);
 		const jsonResponse = await myTenorFetchResponse.json();
-
-		console.log(jsonResponse);
-
+        
 		if (jsonResponse.error === undefined) {
 			const { results } = jsonResponse;
 			const gifsData = results.map((gifInfo) => {
