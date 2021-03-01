@@ -18,9 +18,16 @@ describe('TEST on GifCategoryGridItem', () => {
 		expect(foundText).toBe(sentTitle);
 	});
 
-	test('should display a valid URL as img:src', () => {
-		const foundURL = wrapper.find('img').prop('src');
+	test('should display a valid img element', () => {
+		const foundIMG = wrapper.find('img');
 
-		expect(foundURL).toBe(sentURL);
+		expect(foundIMG.prop('src')).toBe(sentURL);
+		expect(foundIMG.prop('alt')).toBe(sentTitle);
+	});
+
+	test('should contain classes: card & bounceIn', () => {
+		const foundCard = wrapper.find('div.card.animate__bounceIn');
+
+		expect(foundCard.exists()).toBe(true);
 	});
 });
