@@ -2,8 +2,14 @@ import { shallow } from 'enzyme';
 import AddCategory from '../../components/AddCategory';
 
 describe('Testing on AddCategory', () => {
-    const someFunction = jest.fn();
-	const wrapper = shallow(<AddCategory setCategories={someFunction} />);
+	const setCategoriesFn = jest.fn();
+	let wrapper = shallow(<AddCategory setCategories={setCategoriesFn} />);
+
+	beforeEach(() => {
+		/* Limipiar las simulaciones */
+		jest.clearAllMocks();
+		wrapper = shallow(<AddCategory setCategories={setCategoriesFn} />);
+	});
 
 	test('should display component as snapshot', () => {
 		expect(wrapper).toMatchSnapshot();
@@ -17,7 +23,7 @@ describe('Testing on AddCategory', () => {
 
 		expect(wrapper.find('#inputValueCheck').text().trim()).toBe(sentValue);
 
-        /*
+		/*
         ESTO DA ERROR:
         
 		const inputValue = wrapper.find('#inputValueCheck');
@@ -26,5 +32,9 @@ describe('Testing on AddCategory', () => {
         */
 	});
 
-    
+	test('should NOT call setCategories WITHOUT a value', () => {
+		wrapper.find('form').simulate('submit', { preventDefault() {} });
+
+		expect(setCategoriesFn).not.toHaveBeenCalled();
+	});
 });
