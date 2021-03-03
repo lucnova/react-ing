@@ -2,7 +2,8 @@ import { shallow } from 'enzyme';
 import AddCategory from '../../components/AddCategory';
 
 describe('Testing on AddCategory', () => {
-	const wrapper = shallow(<AddCategory setCategories={() => {}} />);
+    const someFunction = jest.fn();
+	const wrapper = shallow(<AddCategory setCategories={someFunction} />);
 
 	test('should display component as snapshot', () => {
 		expect(wrapper).toMatchSnapshot();
@@ -24,4 +25,6 @@ describe('Testing on AddCategory', () => {
         expect(inputValue.text().trim()).toBe(sentValue);
         */
 	});
+
+    
 });
