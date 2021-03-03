@@ -26,10 +26,14 @@ const AddCategory = ({ setCategories }) => {
 	};
 
 	return (
-		<form onSubmit={handleSubmit}>
-			<input type="text" value={inputValue} placeholder="s e a r c h" onChange={handleInputChange}></input>
-			<button>o k</button>
-		</form>
+		<>
+			<p id="inputValueCheck" hidden>{inputValue}</p>
+
+			<form onSubmit={handleSubmit}>
+				<input type="text" value={inputValue} placeholder="s e a r c h" onChange={handleInputChange}></input>
+				<button>o k</button>
+			</form>
+		</>
 	);
 };
 
