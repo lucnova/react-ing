@@ -37,4 +37,23 @@ describe('Testing on AddCategory', () => {
 
 		expect(setCategoriesFn).not.toHaveBeenCalled();
 	});
+
+	test('should call setCategories & change inputValue when given any text (length > 2)', () => {
+		const value = 'Dame unos gifardos';
+
+		//const input = wrapper.find('input[type="text"]');     // NOTA: Si se hace así, la instancia no cambia
+		// no cambia como en JS
+		// Buscar el input de texto y simular escribir el cambio
+		wrapper.find('input').simulate('change', { target: { value } });
+
+		// Encontrar el form y hacer submit
+		wrapper.find('form').simulate('submit', { preventDefault() {} });
+
+		// Esperar a que la funcion de setCategories SI sea una funcion y sea llamada
+		expect(setCategoriesFn).toHaveBeenCalledWith(expect.any(Function));
+		// Esperar a que la funcion de setCategories sea llamada
+		//expect(setCategoriesFn).toHaveBeenCalled();
+		// Esperar a que el inputValue cambie
+		expect(wrapper.find('input').text().trim()).toBe('');
+	});
 });
