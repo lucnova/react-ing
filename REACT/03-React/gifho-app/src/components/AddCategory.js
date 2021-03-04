@@ -27,7 +27,7 @@ const AddCategory = ({ setCategories }) => {
 
 	return (
 		<>
-			<p id="inputValueCheck" hidden>{inputValue}</p>
+			<p id="inputValueCheck">{inputValue}</p>
 
 			<form onSubmit={handleSubmit}>
 				<input type="text" value={inputValue} placeholder="s e a r c h" onChange={handleInputChange}></input>
