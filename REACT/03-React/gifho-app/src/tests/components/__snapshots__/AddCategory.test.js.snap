@@ -3,7 +3,6 @@
 exports[`Testing on AddCategory should display component as snapshot 1`] = `
 <Fragment>
   <p
-    hidden={true}
     id="inputValueCheck"
   />
   <form
