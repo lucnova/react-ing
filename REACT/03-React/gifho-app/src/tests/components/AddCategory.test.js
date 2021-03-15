@@ -29,6 +29,9 @@ describe('Testing on AddCategory', () => {
 		const inputValue = wrapper.find('#inputValueCheck');
         ...
         expect(inputValue.text().trim()).toBe(sentValue);
+
+        Pasa porque: No es como en JS que la intancia aunque sea const mute. De hecho NO mutará.
+            NOTA MENTAL: Al hacer pruebas tratarlas como si fueran fotografias instantaneas de ese elemento
         */
 	});
 
@@ -55,5 +58,7 @@ describe('Testing on AddCategory', () => {
 		//expect(setCategoriesFn).toHaveBeenCalled();
 		// Esperar a que el inputValue cambie
 		expect(wrapper.find('input').text().trim()).toBe('');
+		//expect(wrapper.find('input').prop('value').toBe('');  // -> Asi tampoco funciona, parece ser
+        // que las propiedades no se actualizan en ese momento
 	});
 });
