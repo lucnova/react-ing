@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`testing on GifCategoryGrid should display GridItems when data is gathered by useFetchGifs 1`] = `
+<Fragment>
+  <h3
+    className="animate__animated animate__fadeInUp"
+  >
+    DDLC
+  </h3>
+  <div
+    className="card-grid"
+  >
+    <GifCategoryGridItem
+      id="1241"
+      key="1241"
+      title="tenor.com"
+      url="https://media.tenor.com/images/bcb63018f904222a7f17e0532a517269/tenor.gif"
+    />
+    <GifCategoryGridItem
+      id="5346"
+      key="5346"
+      title="tenor.com"
+      url="https://media.tenor.com/images/bcb63018f904222a7f17e0532a517269/tenor.gif"
+    />
+  </div>
+</Fragment>
+`;
+
+exports[`testing on GifCategoryGrid should match the component snapshot 1`] = `
+<Fragment>
+  <h3
+    className="animate__animated animate__fadeInUp"
+  >
+    DDLC
+  </h3>
+  <p
+    className="animate__animated animate__flash"
+  >
+    Loading...
+  </p>
+  <div
+    className="card-grid"
+  />
+</Fragment>
+`;
