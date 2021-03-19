@@ -42,12 +42,12 @@ describe('testing on GifCategoryGrid', () => {
 		});
 
 		const wrapper = shallow(<GifCategoryGrid categoryName={sentCategoryName} />);
-		
-        // Debe ser igual a snapshot
-        expect(wrapper).toMatchSnapshot();
-        // Debe de no mostrar el elemento loading
+
+		// Debe ser igual a snapshot
+		expect(wrapper).toMatchSnapshot();
+		// NO debe de mostrar el elemento loading
 		expect(wrapper.find('p.animate__animated').exists()).toBe(false);
-        // Debe mostrar la misma cantidad de componentes que del arreglo de data
+		// Debe mostrar la misma cantidad de componentes que del arreglo de data
 		expect(wrapper.find('GifCategoryGridItem').length).toBe(imgs.length);
 	});
 });
