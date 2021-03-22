@@ -4,15 +4,14 @@ import React, { useState } from 'react';
 import AddCategory from './components/AddCategory';
 import GifCategoryGrid from './components/GifCategoryGrid';
 
-const GifhoApp = (props) => {
-	//const [categories, setCategories] = useState(['Pixel Art', 'Vinesauce', 'DDLC']);
-	const [categories, setCategories] = useState(['Pixel Art']);
+const GifhoApp = ({ defaultCategories = [] }) => {
+	const [categories, setCategories] = useState(defaultCategories);
 
 	return (
 		<>
 			<div>
 				<h2>Gifho!</h2>
-                <small>lucnova</small>
+				<small>lucnova</small>
 				<hr />
 			</div>
 
