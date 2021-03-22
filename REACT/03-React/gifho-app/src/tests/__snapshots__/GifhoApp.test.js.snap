@@ -1,6 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`testing on GifhoApp should match snapshot 1`] = `
+exports[`testing on GifhoApp should display NO GifGrid components 1`] = `
+<Fragment>
+  <div>
+    <h2>
+      Gifho!
+    </h2>
+    <small>
+      lucnova
+    </small>
+    <hr />
+  </div>
+  <AddCategory
+    setCategories={[Function]}
+  />
+  <div>
+    <ol />
+  </div>
+</Fragment>
+`;
+
+exports[`testing on GifhoApp should display SAME LENGTH of GifGrid components 1`] = `
 <Fragment>
   <div>
     <h2>
@@ -20,7 +40,35 @@ exports[`testing on GifhoApp should match snapshot 1`] = `
         categoryName="Pixel Art"
         key="Pixel Art"
       />
+      <GifCategoryGrid
+        categoryName="Vinesauce"
+        key="Vinesauce"
+      />
+      <GifCategoryGrid
+        categoryName="DDLC"
+        key="DDLC"
+      />
     </ol>
+  </div>
+</Fragment>
+`;
+
+exports[`testing on GifhoApp should match snapshot 1`] = `
+<Fragment>
+  <div>
+    <h2>
+      Gifho!
+    </h2>
+    <small>
+      lucnova
+    </small>
+    <hr />
+  </div>
+  <AddCategory
+    setCategories={[Function]}
+  />
+  <div>
+    <ol />
   </div>
 </Fragment>
 `;
