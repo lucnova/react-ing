@@ -1,9 +1,11 @@
-import React from 'react'
+import React from 'react';
 
 export const HookApp = () => {
-    return (
-        <div>
-            <h1>Wenas</h1>
-        </div>
-    )
-}
+	return (
+		<div className="row">
+			<div className="col text-center">
+				<h1>HooksApp</h1>
+			</div>
+		</div>
+	);
+};
