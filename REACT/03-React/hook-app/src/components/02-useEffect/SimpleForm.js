@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Message } from './Message';
 
 // HOOK: useEffect => Define un efecto secundario en el componente ( de ahi su nombre )
 
@@ -22,12 +23,12 @@ export const SimpleForm = () => {
 		console.log('Boo!');
 	}, []);
 
-    // useEffect -> Ejecutarse al escuchar cambios en el estado
+	// useEffect -> Ejecutarse al escuchar cambios en el estado
 	useEffect(() => {
 		console.log('* cambio *');
 	}, [formState]);
 
-    // useEffect -> Ejecutarse al escuchar cambios en el estado 'email'
+	// useEffect -> Ejecutarse al escuchar cambios en el estado 'email'
 	useEffect(() => {
 		console.log('* email cambio *');
 	}, [email]);
@@ -76,6 +77,12 @@ export const SimpleForm = () => {
 					</div>
 				</div>
 			</div>
+
+			{name === '123' && (
+				<div className="row">
+					<Message />
+				</div>
+			)}
 		</>
 	);
 };
