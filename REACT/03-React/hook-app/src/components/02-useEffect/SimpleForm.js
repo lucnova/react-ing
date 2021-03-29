@@ -78,7 +78,7 @@ export const SimpleForm = () => {
 				</div>
 			</div>
 
-			{name === '123' && (
+			{name === 'Totaka' && (
 				<div className="row">
 					<Message />
 				</div>
