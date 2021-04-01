@@ -7,6 +7,8 @@ export const MultipleCustomHooks = () => {
 
 	const { data, error, loading } = state;
 
+	const { author, quote, series } = !!data && data[0];    // Si  data es null, se niega doble vez para hacerlo 'false', si es otra cosa es true; ya puedo acceder a data[0].
+
 	return (
 		<>
 			<div className="row">
@@ -31,10 +33,10 @@ export const MultipleCustomHooks = () => {
 						<div className="alert alert-info text-center">
 							<figure>
 								<blockquote className="blockquote">
-									<p>{data[0].quote}</p>
+									<p>{quote}</p>
 								</blockquote>
 								<figcaption className="blockquote-footer">
-									{data[0].author} in <cite title="Source Title">{data[0].series}</cite>
+									{author} in <cite title="Source Title">{series}</cite>
 								</figcaption>
 							</figure>
 						</div>
