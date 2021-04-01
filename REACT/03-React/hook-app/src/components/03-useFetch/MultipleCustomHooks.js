@@ -1,13 +1,17 @@
 import { useFetch } from '../../hooks/useFetch';
+//import { useCounter } from '../../hooks/useCounter';
 
 export const MultipleCustomHooks = () => {
-	const state = useFetch('https://www.breakingbadapi.com/api/quote/random');
+	//const { count, increment } = useCounter(1);
+	//const state = useFetch(`https://www.breakingbadapi.com/api/quotes/${count}`);
+	const [fetchState, sendRequest] = useFetch(`https://www.breakingbadapi.com/api/quote/random`);
 
-	console.log(state);
+	const { data, error, loading } = fetchState;
+	const { author, quote, series } = !!data && data[0]; // Si  data es null, se niega doble vez para hacerlo 'false', si es otra cosa es true; ya puedo acceder a data[0].
 
-	const { data, error, loading } = state;
-
-	const { author, quote, series } = !!data && data[0];    // Si  data es null, se niega doble vez para hacerlo 'false', si es otra cosa es true; ya puedo acceder a data[0].
+	const handleQuoteChange = () => {
+		sendRequest();
+	};
 
 	return (
 		<>
@@ -47,6 +51,14 @@ export const MultipleCustomHooks = () => {
 							<p>ERROR: Read the console for more info.</p>
 						</div>
 					)}
+				</div>
+			</div>
+
+			<div className="row">
+				<div className="col p-5">
+					<button className="btn btn-primary" onClick={handleQuoteChange}>
+						Siguiente -&gt;
+					</button>
 				</div>
 			</div>
 		</>
