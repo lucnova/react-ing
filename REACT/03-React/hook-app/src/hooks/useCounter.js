@@ -6,11 +6,11 @@ import { useState } from 'react';
 export const useCounter = (initialState = 0) => {
 	const [count, setCount] = useState(initialState);
 
-	const increment = (step) => {
+	const increment = (step = 1) => {
 		setCount(count + step);
 	};
 
-	const decrement = (step) => {
+	const decrement = (step = 1) => {
 		setCount(count - step);
 	};
 
