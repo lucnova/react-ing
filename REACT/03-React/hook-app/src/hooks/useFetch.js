@@ -1,19 +1,23 @@
 import { useEffect, useState } from 'react';
 
-export const useFetch = (url = '') => {
-	const [state, setState] = useState({
-		data: null,
-		loading: true,
-		error: null,
-	});
+const loadingState = {
+	data: null,
+	loading: true,
+	error: null,
+};
 
-	useEffect(() => {
+export const useFetch = (url = '') => {
+	const [state, setState] = useState(loadingState);
+
+	const sendRequest = () => {
+		setState(loadingState);
+
 		fetch(url)
 			.then((response) => response.json())
 			.then((JSONData) => {
 				setState({
 					data: JSONData,
-                    error: null,
+					error: null,
 					loading: false,
 				});
 			})
@@ -24,7 +28,11 @@ export const useFetch = (url = '') => {
 		return () => {
 			//cleanup
 		};
+	};
+
+	useEffect(() => {
+		sendRequest();
 	}, [url]);
 
-	return state;
+	return [state, sendRequest];
 };
