@@ -31,7 +31,24 @@ export const useFetch = (url = '') => {
 	};
 
 	useEffect(() => {
-		sendRequest();
+		setState(loadingState);
+
+		fetch(url)
+			.then((response) => response.json())
+			.then((JSONData) => {
+				setState({
+					data: JSONData,
+					error: null,
+					loading: false,
+				});
+			})
+			.catch((e) => {
+				console.error(e);
+			});
+
+		return () => {
+			//cleanup
+		};
 	}, [url]);
 
 	return [state, sendRequest];
