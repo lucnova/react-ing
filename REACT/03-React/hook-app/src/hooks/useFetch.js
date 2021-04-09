@@ -8,7 +8,7 @@ const loadingState = {
 
 export const useFetch = (url = '') => {
 	const quotesMounted = useRef(true); // Mantendra la referencia cuando el componente esta 'vivo'
-    // * USAR useRef EN ESTE CASO PREVEENDRA QUE SI SE ACTUALIZA LA PAGINA O SE CANCELA LA CARGA NO DE UN ERROR AL QUERER ASIGNAR ALGO A UN COMPONENTE INEXISTENTE.
+	// * USAR useRef EN ESTE CASO PREVEENDRA QUE SI SE ACTUALIZA LA PAGINA O SE CANCELA LA CARGA NO DE UN ERROR AL QUERER ASIGNAR ALGO A UN COMPONENTE INEXISTENTE.
 	const [state, setState] = useState(loadingState);
 
 	const sendRequest = () => {
@@ -17,11 +17,13 @@ export const useFetch = (url = '') => {
 		fetch(url)
 			.then((response) => response.json())
 			.then((JSONData) => {
-				setState({
-					data: JSONData,
-					error: null,
-					loading: false,
-				});
+				if (quotesMounted.current) {
+					setState({
+						data: JSONData,
+						error: null,
+						loading: false,
+					});
+				}
 			})
 			.catch((e) => {
 				console.error(e);
