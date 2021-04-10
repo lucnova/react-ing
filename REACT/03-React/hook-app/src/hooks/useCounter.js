@@ -24,5 +24,6 @@ export const useCounter = (initialState = 0) => {
 		increment,
 		decrement,
 		reset,
+        setCount,
 	};
 };
