@@ -1,3 +1,4 @@
+/*
 import React from 'react';
 import ReactDOM from 'react-dom';
 //import { HookApp } from './HookApp';
@@ -16,3 +17,6 @@ import { Padre } from './components/07-tarea-memo/Padre';
 
 //ReactDOM.render(<CounterApp />, document.getElementById('root'));
 ReactDOM.render(<Padre />, document.getElementById('root'));
+*/
+
+import './components/08-useReducer/intro-reducer.js';
