@@ -2,18 +2,20 @@ import React, { useReducer } from 'react';
 import { useForm } from '../../hooks/useForm';
 import todoReducer from './todoReducer';
 
-// * DEFINIR EL ESTADO INICIAL DEL REDUCER (LISTA DE TODO's) *
-const initialState = [
-	{
+// * DEFINIR EL ESTADO INICIAL DEL REDUCER (LISTA DE TODO's)
+
+// * Esta forma es para evitar que se rejecute tras cada cambio
+const init = () => {
+	return [{
 		id: new Date().getTime(),
 		title: 'Fix Chair',
 		desc: 'Fix the Office Chair',
 		done: true,
-	},
-];
+	}];
+};
 
 export const TodoApp = () => {
-	const [currentTodos, dispatch] = useReducer(todoReducer, initialState);
+	const [currentTodos, dispatch] = useReducer(todoReducer, [], init);
 	const [{ title, desc }, handleInputChange, resetFormValues] = useForm({
 		title: '',
 		desc: '',
