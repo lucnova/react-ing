@@ -1,4 +1,5 @@
 import React, { useReducer } from 'react';
+import { useForm } from '../../hooks/useForm';
 import todoReducer from './todoReducer';
 
 // * DEFINIR EL ESTADO INICIAL DEL REDUCER (LISTA DE TODO's) *
@@ -14,8 +15,10 @@ const initialState = [
 // * DEFINIR EL ESTADO INICIAL DEL REDUCER (LISTA DE TODO's) *
 export const TodoApp = () => {
 	const [currentTodos, dispatch] = useReducer(todoReducer, initialState);
-
-	console.log(currentTodos);
+	const [{ title, desc }, handleInputChange] = useForm({
+		title: '',
+		desc: '',
+	});
 
 	// * FUNCION PARA MANEJAR EL FORM DE SUBIR UN TODO *
 	const handleTodoSubmit = (e) => {
@@ -23,8 +26,8 @@ export const TodoApp = () => {
 
 		const newTodo = {
 			id: new Date().getTime(),
-			title: 'Fix Chair',
-			desc: 'Fix the Office Chair',
+			title: title,
+			desc: desc,
 			done: false,
 		};
 
@@ -33,7 +36,7 @@ export const TodoApp = () => {
 			payload: newTodo,
 		};
 
-        dispatch(addTodoAction);
+		dispatch(addTodoAction);
 	};
 
 	return (
@@ -52,10 +55,10 @@ export const TodoApp = () => {
 				<div className="col ps-5">
 					<h5>Here´s your todo's</h5>
 
-					<div className="row row-cols-1 row-cols-md-3 g-4">
-						<div className="col">
-							{currentTodos.map((todo) => (
-								<div key={todo.id} className="card">
+					<div className="row row-cols-1 row-cols-md-2 g-4">
+						{currentTodos.map((todo) => (
+							<div key={todo.id} className="col">
+								<div className="card">
 									<div className="card-body">
 										<div className="row">
 											<div className="col">
@@ -72,27 +75,37 @@ export const TodoApp = () => {
 										</div>
 									</div>
 								</div>
-							))}
-						</div>
+							</div>
+						))}
 					</div>
 				</div>
 
-				<div className="col-4">
+				<div className="col-3 ps-4 py-4 me-5">
 					<h5>Add a new ToDo</h5>
 
 					<form className="pe-4" onSubmit={handleTodoSubmit}>
 						<div className="mb-3">
 							<label className="form-label">Title</label>
-							<input type="text" className="form-control w-100" name="title" placeholder="Buy Bread..." autoComplete="off" />
+							<input
+								type="text"
+								className="form-control w-100"
+								name="title"
+								placeholder="Buy Bread..."
+								autoComplete="off"
+								value={title}
+								onChange={handleInputChange}
+							/>
 						</div>
 						<div className="mb-3">
 							<label className="form-label">Description</label>
 							<input
 								type="text"
 								className="form-control w-100"
-								name="description"
+								name="desc"
 								placeholder="Buy my favorite kind of bread..."
 								autoComplete="off"
+								value={desc}
+								onChange={handleInputChange}
 							/>
 						</div>
 						<button type="submit" className="btn btn-primary btn-lg w-100">
