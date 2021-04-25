@@ -15,7 +15,7 @@ const initialState = [
 // * DEFINIR EL ESTADO INICIAL DEL REDUCER (LISTA DE TODO's) *
 export const TodoApp = () => {
 	const [currentTodos, dispatch] = useReducer(todoReducer, initialState);
-	const [{ title, desc }, handleInputChange] = useForm({
+	const [{ title, desc }, handleInputChange, resetFormValues] = useForm({
 		title: '',
 		desc: '',
 	});
@@ -37,6 +37,8 @@ export const TodoApp = () => {
 		};
 
 		dispatch(addTodoAction);
+
+        resetFormValues();
 	};
 
 	return (
