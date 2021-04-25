@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useEffect, useReducer } from 'react';
 import { useForm } from '../../hooks/useForm';
 import todoReducer from './todoReducer';
 
@@ -6,12 +6,14 @@ import todoReducer from './todoReducer';
 
 // * Esta forma es para evitar que se rejecute tras cada cambio
 const init = () => {
-	return [{
-		id: new Date().getTime(),
-		title: 'Fix Chair',
-		desc: 'Fix the Office Chair',
-		done: true,
-	}];
+	return JSON.parse(localStorage.getItem('todos')) || [];
+
+	// return [{
+	// 	id: new Date().getTime(),
+	// 	title: 'Fix Chair',
+	// 	desc: 'Fix the Office Chair',
+	// 	done: true,
+	// }];
 };
 
 export const TodoApp = () => {
@@ -20,6 +22,11 @@ export const TodoApp = () => {
 		title: '',
 		desc: '',
 	});
+
+	// * GRABAR EN LOCALSTORAGE CON UN USEEFFECT
+	useEffect(() => {
+		localStorage.setItem('todos', JSON.stringify(currentTodos));
+	}, [currentTodos]);
 
 	// * Validar que los valores del form sean validos
 	const inputDataIsValid = () => {
