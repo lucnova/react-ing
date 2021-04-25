@@ -12,7 +12,6 @@ const initialState = [
 	},
 ];
 
-// * DEFINIR EL ESTADO INICIAL DEL REDUCER (LISTA DE TODO's) *
 export const TodoApp = () => {
 	const [currentTodos, dispatch] = useReducer(todoReducer, initialState);
 	const [{ title, desc }, handleInputChange, resetFormValues] = useForm({
@@ -20,26 +19,49 @@ export const TodoApp = () => {
 		desc: '',
 	});
 
-	// * FUNCION PARA MANEJAR EL FORM DE SUBIR UN TODO *
+	// * Validar que los valores del form sean validos
+	const inputDataIsValid = () => {
+		const trimmedTitle = title.trim();
+		const trimmedDesc = desc.trim();
+
+		if (trimmedTitle.length <= 1 || trimmedTitle === '') {
+			return false;
+		}
+
+		if (trimmedDesc.length <= 1 || trimmedDesc === '') {
+			return false;
+		}
+
+		return true;
+	};
+
+	// * FUNCION PARA MANEJAR EL FORM DE SUBIR UN TODO
 	const handleTodoSubmit = (e) => {
 		e.preventDefault();
 
-		const newTodo = {
-			id: new Date().getTime(),
-			title: title,
-			desc: desc,
-			done: false,
-		};
+		if (inputDataIsValid()) {
+			const trimmedTitle = title.trim();
+			const trimmedDesc = desc.trim();
 
-		const addTodoAction = {
-			type: 'add',
-			payload: newTodo,
-		};
+			const newTodo = {
+				id: new Date().getTime(),
+				title: trimmedTitle,
+				desc: trimmedDesc,
+				done: false,
+			};
 
-		dispatch(addTodoAction);
+			const addTodoAction = {
+				type: 'add',
+				payload: newTodo,
+			};
 
-        resetFormValues();
+			dispatch(addTodoAction);
+
+			resetFormValues();
+		}
 	};
+
+	// ** CONTENIDO **
 
 	return (
 		<>
