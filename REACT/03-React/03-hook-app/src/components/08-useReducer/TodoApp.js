@@ -70,6 +70,15 @@ export const TodoApp = () => {
 		}
 	};
 
+	const handleDeleteTodo = (todoID) => {
+		const deleteTodoAction = {
+			type: 'delete',
+			payload: todoID,
+		};
+
+		dispatch(deleteTodoAction);
+	};
+
 	// ** CONTENIDO **
 
 	return (
@@ -99,7 +108,9 @@ export const TodoApp = () => {
 												<h6 className="card-subtitle mb-2 text-muted">{new Date(todo.id).toLocaleString()}</h6>
 												<p className="card-text">{todo.desc}</p>
 
-												<button className="btn btn-danger">Delete</button>
+												<button className="btn btn-danger" onClick={() => handleDeleteTodo(todo.id)}>
+													Delete
+												</button>
 											</div>
 
 											<div className="col text-center m-auto">
