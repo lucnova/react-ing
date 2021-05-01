@@ -1,4 +1,7 @@
 import React, { useEffect, useReducer } from 'react';
+
+import { TodoList } from './TodoList';
+
 import { useForm } from '../../hooks/useForm';
 import todoReducer from './todoReducer';
 
@@ -106,32 +109,7 @@ export const TodoApp = () => {
 				<div className="col ps-5">
 					<h5>Here´s your todo's</h5>
 
-					<div className="row row-cols-1 row-cols-md-2 g-4">
-						{currentTodos.map((todo) => (
-							<div key={todo.id} className="col">
-								<div className={`${todo.done === true ? 'card text-decoration-line-through' : 'card'}`}>
-									<div className="card-body">
-										<div className="row">
-											<div className="col">
-												<h5 className="card-title">{todo.title}</h5>
-												<h6 className="card-subtitle mb-2 text-muted">{new Date(todo.id).toLocaleString()}</h6>
-												<p className="card-text">{todo.desc}</p>
-												<button className="btn btn-danger" onClick={() => handleDeleteTodo(todo.id)} disabled={todo.done}>
-													Delete
-												</button>
-											</div>
-
-											<div className="col text-center m-auto">
-												<button className="btn btn-primary p-4" onClick={() => handleToggleTodo(todo.id)}>
-													{todo.done === false ? 'Mark' : 'Unmark'}
-												</button>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						))}
-					</div>
+					<TodoList currentTodos={currentTodos} handleDeleteTodo={handleDeleteTodo} handleToggleTodo={handleToggleTodo}></TodoList>
 				</div>
 
 				<div className="col-3 ps-4 py-4 me-5">
