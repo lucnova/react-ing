@@ -10,13 +10,13 @@ export const NavBar = () => {
 
 			<div className="collapse navbar-collapse">
 				<ul className="navbar-nav mr-auto">
-					<NavLink to="/home" className="nav-item nav-link" activeClassName="active">
+					<NavLink exact to="/" className="nav-item nav-link" activeClassName="active">
 						Home
 					</NavLink>
-					<NavLink to="/about" className="nav-item nav-link" activeClassName="active">
+					<NavLink exact to="/about" className="nav-item nav-link" activeClassName="active">
 						About
 					</NavLink>
-					<NavLink to="/login" className="nav-item nav-link" activeClassName="active">
+					<NavLink exact to="/login" className="nav-item nav-link" activeClassName="active">
 						Login
 					</NavLink>
 				</ul>
