@@ -26,6 +26,11 @@ export const useFetch = (url = '') => {
 				}
 			})
 			.catch((e) => {
+				setState({
+					data: null,
+					error: e,
+					loading: false,
+				});
 				console.error(e);
 			});
 	};
@@ -52,6 +57,11 @@ export const useFetch = (url = '') => {
 				}
 			})
 			.catch((e) => {
+				setState({
+					data: null,
+					error: e,
+					loading: false,
+				});
 				console.error(e);
 			});
 
