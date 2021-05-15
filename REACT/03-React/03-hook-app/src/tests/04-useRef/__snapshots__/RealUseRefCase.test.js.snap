@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing on RealUseRefCase should match snapshot 1`] = `
+<Fragment>
+  <div
+    className="row"
+  >
+    <div
+      className="col pt-5 px-5"
+    >
+      <h1>
+        RealUseRefCase
+      </h1>
+      <hr />
+    </div>
+  </div>
+  <div
+    className="row"
+  >
+    <div
+      className="col mb-2 px-5"
+    >
+      <button
+        className="btn btn-success"
+        onClick={[Function]}
+      >
+        Mostrar / Ocultar
+      </button>
+    </div>
+  </div>
+</Fragment>
+`;
