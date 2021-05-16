@@ -7,6 +7,7 @@ import { UserContext } from './UserContext';
 export const MainApp = () => {
 	const [user, setUser] = useState({});
 
+    // * Al envolver componentes sobre el UserContext.Provider, todos los componentes hijos pueden tener acceso a ese Context
 	return (
 		<UserContext.Provider
 			value={{
