@@ -23,7 +23,7 @@ export const NavBar = () => {
 			<div className="navbar-collapse collapse w-100 order-3 dual-collapse2">
 				<ul className="navbar-nav ml-auto">
 					<NavLink activeClassName="active" className="nav-item nav-link" exact to="/login">
-						Logout
+						Log-In
 					</NavLink>
 				</ul>
 			</div>
