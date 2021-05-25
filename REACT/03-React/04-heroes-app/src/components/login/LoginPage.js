@@ -2,6 +2,10 @@ import React from 'react';
 import './LoginPage.css';
 
 export const LoginPage = () => {
+	const handleLogin = () => {
+		console.log('yo');
+	};
+
 	return (
 		<div className="container">
 			<div className="row">
@@ -32,43 +36,13 @@ export const LoginPage = () => {
 											<input name="pass" type="password" className="input" data-type="password" placeholder="*********" />
 										</div>
 										<div className="group">
-											<input type="submit" className="button" defaultValue="Ingresar" />
+											<button className="button" onClick={handleLogin}>
+												Ingresar
+											</button>
 										</div>
 										<div className="hr" />
 									</div>
-									<div className="sign-up-form">
-										<div className="group">
-											<label htmlFor="user" className="label">
-												Username
-											</label>
-											<input name="user" type="text" className="input" placeholder="Create your Username" />
-										</div>
-										<div className="group">
-											<label htmlFor="pass" className="label">
-												Password
-											</label>
-											<input name="pass" type="password" className="input" data-type="password" placeholder="Create your password" />
-										</div>
-										<div className="group">
-											<label htmlFor="pass" className="label">
-												Repeat Password
-											</label>
-											<input name="pass" type="password" className="input" data-type="password" placeholder="Repeat your password" />
-										</div>
-										<div className="group">
-											<label htmlFor="pass" className="label">
-												Email Address
-											</label>
-											<input name="pass" type="text" className="input" placeholder="Enter your email address" />
-										</div>
-										<div className="group">
-											<input type="submit" className="button" defaultValue="Sign Up" />
-										</div>
-										<div className="hr" />
-										<div className="foot">
-											<label htmlFor="tab-1">Already Member?</label>
-										</div>
-									</div>
+									<div className="sign-up-form"></div>
 								</div>
 							</div>
 						</div>
