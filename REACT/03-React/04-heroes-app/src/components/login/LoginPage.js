@@ -1,9 +1,12 @@
 import React from 'react';
 import './LoginPage.css';
 
-export const LoginPage = () => {
+export const LoginPage = ({ history }) => {
+	// * Desestructurando el history para poder navegar rutas
+
 	const handleLogin = () => {
-		console.log('yo');
+		// * Reemplazo de una ruta para que no pueda navegar atras hacia ella
+		history.replace('/');
 	};
 
 	return (
