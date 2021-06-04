@@ -6,13 +6,11 @@ import { DashboardRoutes } from './DashboardRoutes';
 export const AppRouter = () => {
 	return (
 		<Router>
-			<div>
-				<Switch>
-					<Route exact path="/login" component={LoginPage} />
+			<Switch>
+				<Route exact path="/login" component={LoginPage} />
 
-					<Route path="/" component={DashboardRoutes} />
-				</Switch>
-			</div>
+				<Route path="/" component={DashboardRoutes} />
+			</Switch>
 		</Router>
 	);
 };

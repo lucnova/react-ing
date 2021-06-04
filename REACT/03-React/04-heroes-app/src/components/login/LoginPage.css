@@ -1,8 +1,14 @@
-body {
+.login-container {
 	margin: 0;
+    height: 100vh;
 	color: #6a6f8c;
-	background: rgb(255, 255, 255);
 	font: 600 16px/18px 'Open Sans', sans-serif;
+
+	background: url(https://i.ibb.co/kDs4mpq/comics-495258-1280-blur.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
 
 .login-box {
@@ -11,9 +17,9 @@ body {
 	max-width: 525px;
 	min-height: 670px;
 	position: relative;
-	background: url(https://i.ibb.co/q9DWj5Z/comics-495258-1280.jpg) no-repeat center;
+	background: rgba(0, 0, 0, 0.267);
 	box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
-    border-radius: 32px;
+	border-radius: 32px;
 }
 
 .login-snip {
@@ -21,8 +27,8 @@ body {
 	height: 100%;
 	position: absolute;
 	padding: 90px 70px 50px 70px;
-	background: rgba(77, 22, 0, 0.9);
-    border-radius: 32px;
+	background: rgba(117, 33, 0, 0.3);
+	border-radius: 32px;
 }
 
 .login-snip .login,
@@ -79,8 +85,12 @@ body {
 .login-space .group .input,
 .login-space .group .button {
 	width: 100%;
-	color: #fff;
+	color: rgba(255, 255, 255, 0.966);
 	display: block;
+}
+
+input {
+	background-color: rgba(255, 255, 255, 0.233) !important;
 }
 
 .login-space .group .input,
@@ -97,7 +107,7 @@ body {
 }
 
 .login-space .group .label {
-	color: #aaa;
+	color: rgb(255, 255, 255);
 	font-size: 12px;
 }
 
@@ -195,9 +205,9 @@ a {
 }
 
 .card {
-	width: 500px;
-	left: 100px;
-    background-color: rgba(0, 0, 0, 0);
+	min-width: 256px;
+	background-color: rgba(0, 0, 0, 0);
+	border: 0px;
 }
 
 ::placeholder {
