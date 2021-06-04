@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export const HeroCard = ({ id, superhero, alter_ego, characters }) => {
 	return (
@@ -10,6 +11,10 @@ export const HeroCard = ({ id, superhero, alter_ego, characters }) => {
 					<h6 className="card-subtitle mb-2 text-muted">{alter_ego}</h6>
 
 					{alter_ego !== characters && <p className="card-text">{characters}</p>}
+
+					<Link to={`./hero/${id}`} className="btn btn-primary">
+						Details
+					</Link>
 				</div>
 			</div>
 		</div>
