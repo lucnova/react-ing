@@ -7,6 +7,8 @@ export const LoginPage = ({ history }) => {
 	const handleLogin = () => {
 		// * Reemplazo de una ruta para que no pueda navegar atras hacia ella
 		history.replace('/');
+
+		// * Se puede usar .push pero con replace reemplaza como si llegara directo, y no se pueda mover atrás
 	};
 
 	return (
