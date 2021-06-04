@@ -1,5 +1,6 @@
 import React from 'react';
 import { getHeroesByPublisher } from '../selectors/getHeroesByPublisher';
+import { HeroCard } from './HeroCard';
 
 // * Recibe:
 // *    publisher: Es el nombre de la compañia a la que pertenece.
@@ -9,10 +10,10 @@ export const HeroesList = ({ publisher }) => {
 	const heroes = getHeroesByPublisher(publisher);
 
 	return (
-		<ul>
+		<div className="row row-cols-1 row-cols-md-4 g-4">
 			{heroes.map((hero) => {
-				return <li key={hero.id}>{hero.superhero}</li>;
+				return <HeroCard key={hero.id} {...hero} />;
 			})}
-		</ul>
+		</div>
 	);
 };
