@@ -5,7 +5,7 @@ export const MarvelPage = () => {
 	return (
 		<div>
 			<h1>MARVEL PAGE</h1>
-			<HeroesList publisher="Marvel"></HeroesList>
+			<HeroesList publisher="Marvel Comics"></HeroesList>
 		</div>
 	);
 };
