@@ -15,7 +15,7 @@ export const DashboardRoutes = () => {
 				<Switch>
 					<Route exact path="/dc" component={DCPage} />
 					<Route exact path="/marvel" component={MarvelPage} />
-					<Route exact path="/heroe/:heroID" component={HeroesPage} />
+					<Route exact path="/hero/:heroID" component={HeroesPage} />
 
 					<Redirect to="/marvel" />
 				</Switch>
