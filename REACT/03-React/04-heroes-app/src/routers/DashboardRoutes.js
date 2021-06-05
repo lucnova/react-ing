@@ -2,6 +2,7 @@ import React from 'react';
 import { Redirect, Route, Switch } from 'react-router';
 
 import { NavBar } from '../components/UI/NavBar';
+import { Footer } from '../components/UI/Footer';
 import { HeroesPage } from '../components/heroes/HeroesPage';
 import { MarvelPage } from '../components/MARVEL/MarvelPage';
 import { DCPage } from '../components/DC/DCPage';
@@ -20,6 +21,8 @@ export const DashboardRoutes = () => {
 					<Redirect to="/marvel" />
 				</Switch>
 			</div>
+
+			<Footer />
 		</>
 	);
 };
