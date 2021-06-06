@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Redirect, useParams } from 'react-router';
 import { getHeroById } from '../selectors/getHeroById';
 
@@ -6,7 +6,7 @@ export const HeroesPage = ({ history }) => {
 	const { heroID } = useParams();
 
 	// * En caso de que el ID sea uno que no exista entonces redirigo a /
-	const searchedHero = getHeroById(heroID);
+	const searchedHero = useMemo(() => getHeroById(heroID), [heroID]);
 	if (!searchedHero) {
 		return <Redirect to="/" />;
 	}
@@ -15,7 +15,7 @@ export const HeroesPage = ({ history }) => {
 
 	const handleRedirect = () => {
 		if (history.length <= 2) {
-            history.push('/')
+			history.push('/');
 		} else {
 			history.goBack();
 		}

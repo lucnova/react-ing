@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { getHeroesByPublisher } from '../selectors/getHeroesByPublisher';
 import { HeroCard } from './HeroCard';
 
@@ -7,7 +7,7 @@ import { HeroCard } from './HeroCard';
 // * Se filtran los datos de los heroes en busca de los heroes con ese publisher y se muestran.
 
 export const HeroesList = ({ publisher }) => {
-	const heroes = getHeroesByPublisher(publisher);
+	const heroes = useMemo(() => getHeroesByPublisher(publisher), [publisher]);
 
 	return (
 		<div className="row row-cols-1 row-cols-md-4 g-4">
