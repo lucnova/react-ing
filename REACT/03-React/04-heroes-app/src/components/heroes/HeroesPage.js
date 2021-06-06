@@ -14,7 +14,11 @@ export const HeroesPage = ({ history }) => {
 	const { id, superhero, first_appearance, alter_ego, characters, publisher } = searchedHero;
 
 	const handleRedirect = () => {
-		history.goBack();
+		if (history.length <= 2) {
+            history.push('/')
+		} else {
+			history.goBack();
+		}
 	};
 
 	return (
