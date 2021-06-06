@@ -2,7 +2,7 @@ import React from 'react';
 import { Redirect, useParams } from 'react-router';
 import { getHeroById } from '../selectors/getHeroById';
 
-export const HeroesPage = () => {
+export const HeroesPage = ({ history }) => {
 	const { heroID } = useParams();
 
 	// * En caso de que el ID sea uno que no exista entonces redirigo a /
@@ -11,7 +11,11 @@ export const HeroesPage = () => {
 		return <Redirect to="/" />;
 	}
 
-	const { id, superhero, first_appearance, alter_ego, characters } = searchedHero;
+	const { id, superhero, first_appearance, alter_ego, characters, publisher } = searchedHero;
+
+	const handleRedirect = () => {
+		history.goBack();
+	};
 
 	return (
 		<>
@@ -38,6 +42,10 @@ export const HeroesPage = () => {
 							<span className="fw-bold">Characters: </span>
 							{characters}
 						</p>
+
+						<button className="btn btn-large btn-primary" onClick={handleRedirect}>
+							<i className="fas fa-arrow-left"></i> Return
+						</button>
 					</div>
 				</div>
 			</div>
