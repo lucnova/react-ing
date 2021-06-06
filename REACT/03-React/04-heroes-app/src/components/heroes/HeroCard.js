@@ -13,7 +13,7 @@ export const HeroCard = ({ id, superhero, alter_ego, characters }) => {
 					{alter_ego !== characters && <p className="card-text">{characters}</p>}
 
 					<Link to={`./hero/${id}`} className="btn btn-primary">
-						Details
+						<i class="fas fa-info"></i> Details
 					</Link>
 				</div>
 			</div>
