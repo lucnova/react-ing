@@ -30,7 +30,7 @@ export const HeroesPage = ({ history }) => {
 							src={`../assets/heroes/${id}.jpg`}
 							alt={`${id}`}
 							style={{ maxHeight: 512 }}
-							className="rounded shadow"
+							className="rounded shadow-lg"
 							loading="lazy"
 						/>
 					</div>
