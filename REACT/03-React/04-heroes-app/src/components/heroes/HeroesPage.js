@@ -30,11 +30,11 @@ export const HeroesPage = ({ history }) => {
 							src={`../assets/heroes/${id}.jpg`}
 							alt={`${id}`}
 							style={{ maxHeight: 512 }}
-							className="rounded shadow-lg"
+							className="rounded shadow-lg animate__animated animate__slideInRight"
 							loading="lazy"
 						/>
 					</div>
-					<div className="col-lg-6">
+					<div className="col-lg-6 animate__animated animate__slideInLeft">
 						<h1 className="display-5 fw-bold lh-1 mb-3">{superhero}</h1>
 						<p className="lead">
 							<span className="fw-bold">Alter Ego: </span>
