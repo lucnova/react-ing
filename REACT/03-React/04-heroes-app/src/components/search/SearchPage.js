@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useLocation } from 'react-router';
 import { useForm } from '../../hooks/useForm';
 import queryString from 'query-string';
@@ -16,12 +16,10 @@ export const SearchPage = ({ history }) => {
 
 	const { searchTerm } = formValues;
 
-	const filteredHeroes = getHeroesByName(q);
+	const filteredHeroes = useMemo(() => getHeroesByName(q), [q]);
 
 	const handleSearch = (e) => {
 		e.preventDefault();
-
-		console.log(searchTerm);
 
 		history.push(`?q=${searchTerm}`);
 	};
