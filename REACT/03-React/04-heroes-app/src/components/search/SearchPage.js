@@ -1,30 +1,36 @@
 import React from 'react';
-import { heroes } from '../../data/heroes';
+import { useLocation } from 'react-router';
 import { useForm } from '../../hooks/useForm';
-import { HeroCard } from '../heroes/HeroCard';
+import queryString from 'query-string';
 
-export const SearchPage = () => {
+import { HeroCard } from '../heroes/HeroCard';
+import { getHeroesByName } from '../selectors/getHeroesByName';
+
+export const SearchPage = ({ history }) => {
+	const { search } = useLocation(); // Hook de Router para obtener la location
+	const { q = '' } = queryString.parse(search);
+
 	const [formValues, handleInputChange] = useForm({
-		searchTerm: '',
+		searchTerm: q,
 	});
 
 	const { searchTerm } = formValues;
 
-	const filteredHeroes = heroes.filter((hero) => {
-		return hero;
-	});
+	const filteredHeroes = getHeroesByName(q);
 
 	const handleSearch = (e) => {
 		e.preventDefault();
 
 		console.log(searchTerm);
+
+		history.push(`?q=${searchTerm}`);
 	};
 
 	return (
 		<div className="row">
 			<div className="col">
 				<h6>
-					<i className="fas fa-database"></i> Resultados:
+					<i className="fas fa-database"></i> Results:
 				</h6>
 
 				<div id="searchResults" className="row row-cols-1 row-cols-md-4 g-4 my-3">
@@ -36,7 +42,7 @@ export const SearchPage = () => {
 
 			<div className="col-3">
 				<h6>
-					<i className="fas fa-search"></i> Búsqueda
+					<i className="fas fa-search"></i> Search
 				</h6>
 
 				<form className="form-group">
