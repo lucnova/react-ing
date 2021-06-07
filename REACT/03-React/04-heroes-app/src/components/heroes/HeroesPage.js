@@ -11,7 +11,7 @@ export const HeroesPage = ({ history }) => {
 		return <Redirect to="/" />;
 	}
 
-	const { id, superhero, first_appearance, alter_ego, characters, publisher } = searchedHero;
+	const { id, superhero, first_appearance, alter_ego, characters } = searchedHero;
 
 	const handleRedirect = () => {
 		if (history.length <= 2) {
