@@ -45,19 +45,19 @@ export const LoginPage = ({ history }) => {
 										<div className="login">
 											<div className="group">
 												<label htmlFor="user" className="label">
-													Usuario
+													<i className="fas fa-user"></i> Usuario
 												</label>
 												<input name="user" type="text" className="input" placeholder="Ingresa tu Usuario" />
 											</div>
 											<div className="group">
 												<label htmlFor="pass" className="label">
-													Contraseña
+													<i className="fas fa-key"></i> Contraseña
 												</label>
 												<input name="pass" type="password" className="input" data-type="password" placeholder="*********" />
 											</div>
 											<div className="group">
 												<button className="button" onClick={handleLogin}>
-													Ingresar
+													<i className="fas fa-sign-in-alt"></i> Ingresar
 												</button>
 											</div>
 											<div className="hr" />
