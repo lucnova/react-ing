@@ -13,11 +13,11 @@ const init = () => {
 };
 
 export const HeroesApp = () => {
-	const [user, dispatch] = useReducer(authReducer, {}, init);
+	const [authUser, authDispatch] = useReducer(authReducer, {}, init);
 
-    // * value Distribuye el objeto a lo largo de la app (perfecto pues el login es necesario)
+	// * value Distribuye el objeto a lo largo de la app (perfecto pues el login es necesario)
 	return (
-		<AuthContext.Provider value={{ user, dispatch }}>
+		<AuthContext.Provider value={{ authUser, authDispatch }}>
 			<AppRouter />
 		</AuthContext.Provider>
 	);
