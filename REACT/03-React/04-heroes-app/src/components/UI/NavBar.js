@@ -1,9 +1,16 @@
 import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../auth/AuthContext';
+import { types } from '../../types/types';
 
 export const NavBar = () => {
-	const { authUser } = useContext(AuthContext);
+	const { authUser, authDispatch } = useContext(AuthContext);
+
+	const handleLogout = () => {
+		authDispatch({
+			type: types.logout,
+		});
+	};
 
 	return (
 		<nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -49,7 +56,8 @@ export const NavBar = () => {
 								data-bs-toggle="dropdown"
 								aria-expanded="false"
 							>
-								<span>{authUser.logged && authUser.username}</span>{' '}
+								<span className="me-1">{authUser.logged && authUser.username}</span>
+                                <span className="me-1">{!authUser.logged && 'User'}</span>
 								<img
 									src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
 									className="rounded-circle"
@@ -61,8 +69,13 @@ export const NavBar = () => {
 							<ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
 								<li>
 									<NavLink activeClassName="active" className="dropdown-item" exact to="/login">
-										Login
+										<i className="fas fa-sign-in-alt"></i> Login
 									</NavLink>
+								</li>
+								<li>
+									<button className="dropdown-item" onClick={handleLogout}>
+										<i className="fas fa-sign-out-alt"></i> Logout
+									</button>
 								</li>
 							</ul>
 						</div>
