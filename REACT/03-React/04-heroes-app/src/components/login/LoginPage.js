@@ -1,14 +1,28 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../auth/AuthContext';
+import { types } from '../../types/types';
 import './LoginPage.css';
 
 export const LoginPage = ({ history }) => {
 	// * Desestructurando el history para poder navegar rutas
 
+	const { authDispatch } = useContext(AuthContext);
+
 	const handleLogin = () => {
 		// * Reemplazo de una ruta para que no pueda navegar atras hacia ella
-		history.replace('/');
-
+		// history.replace('/');
 		// * Se puede usar .push pero con replace reemplaza como si llegara directo, y no se pueda mover atrás
+
+		const loggedUser = {
+			username: 'lucnova',
+		};
+
+		authDispatch({
+			type: types.login,
+			payload: loggedUser,
+		});
+        
+		history.replace('/');
 	};
 
 	return (
