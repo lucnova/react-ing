@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useHistory } from 'react-router-dom';
 import { AuthContext } from '../../auth/AuthContext';
 import { types } from '../../types/types';
 
@@ -10,7 +10,11 @@ export const NavBar = () => {
 		authDispatch({
 			type: types.logout,
 		});
+
+        history.replace('/login')
 	};
+
+    const history = useHistory();
 
 	return (
 		<nav className="navbar navbar-expand-lg navbar-dark bg-dark">
