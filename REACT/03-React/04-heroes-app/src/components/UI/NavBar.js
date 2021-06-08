@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../../auth/AuthContext';
 
 export const NavBar = () => {
+	const { authUser } = useContext(AuthContext);
+
 	return (
 		<nav className="navbar navbar-expand-lg navbar-dark bg-dark">
 			<div className="container-fluid">
@@ -46,8 +49,14 @@ export const NavBar = () => {
 								data-bs-toggle="dropdown"
 								aria-expanded="false"
 							>
-								<span>User</span>{' '}
-								<img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" className="rounded-circle" height={25} alt="" loading="lazy" />
+								<span>{authUser.logged && authUser.username}</span>{' '}
+								<img
+									src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
+									className="rounded-circle"
+									height={25}
+									alt=""
+									loading="lazy"
+								/>
 							</button>
 							<ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
 								<li>
