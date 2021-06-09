@@ -21,8 +21,10 @@ export const LoginPage = ({ history }) => {
 			type: types.login,
 			payload: loggedUser,
 		});
-        
-		history.replace('/');
+
+		const lastPath = localStorage.getItem('lastPath') || '/';
+
+		history.replace(lastPath);
 	};
 
 	return (

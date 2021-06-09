@@ -8,6 +8,9 @@ import PropTypes from 'prop-types';
 
 // * ...rest es para pasar todos los props (resto) y hacer un puente entre ruta privada y componente a mostrar.
 export const PrivateRoute = ({ isAuth, component: Component, ...rest }) => {
+	const lastPath = rest.location.pathname;
+	localStorage.setItem('lastPath', lastPath);
+
 	return (
 		<Route
 			{...rest}
