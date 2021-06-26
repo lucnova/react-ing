@@ -2,6 +2,10 @@ import React, { useMemo } from 'react';
 import { Redirect, useParams } from 'react-router';
 import { getHeroById } from '../selectors/getHeroById';
 
+//import heroImg from '../../assets/heroes/dc-batman.jpg' // IMPORTAR ESTATICO
+//const heroImages = require.context('../../assets/heroes', true); // IMPORTAR DINAMICO require -> es de Webpack
+import heroImages from '../../helpers/heroImages';
+
 export const HeroesPage = ({ history }) => {
 	const { heroID } = useParams();
 
@@ -27,7 +31,9 @@ export const HeroesPage = ({ history }) => {
 				<div className="row flex-lg-row-reverse align-items-center g-5 py-5">
 					<div className="col-10 col-sm-8 col-lg-6">
 						<img
-							src={`../assets/heroes/${id}.jpg`}
+							//src={`../assets/heroes/${id}.jpg`}    // Antes con assets en public
+							//src={batman}    // assets en src estatico
+							src={heroImages(`./${id}.jpg`).default} // assets en src dinamico
 							alt={`${id}`}
 							style={{ maxHeight: 512 }}
 							className="rounded shadow-lg animate__animated animate__slideInRight"
