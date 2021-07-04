@@ -7,14 +7,11 @@ export const LoginPage = () => {
 			<h1 className="auth__title">Iniciar Sesión</h1>
 
 			<form>
-				<label>Correo:</label>
-				<input type="text" placeholder="lorem@ipsum.com" name="email" className="auth__input" autoComplete="off" />
+				<input type="text" placeholder="Correo" name="email" className="auth__input" autoComplete="off" />
+				<input type="password" placeholder="Contraseña" name="password" className="auth__input" autoComplete="off" />
 
-				<label>Contraseña:</label>
-				<input type="password" placeholder="*******" name="password" className="auth__input" autoComplete="off" />
-
-				<button className="btn btn-primary btn-block" type="submit" disabled={false}>
-					Login
+				<button className="btn btn-primary btn-block" type="submit" disabled={true}>
+					Iniciar Sesión
 				</button>
 
 				<hr className="auth__separator" />
@@ -34,7 +31,7 @@ export const LoginPage = () => {
 					</div>
 				</div>
 
-				<Link to="auth/register">Registrarse</Link>
+				<Link to="/auth/register" className="link">Registrarse</Link>
 			</form>
 		</>
 	);
