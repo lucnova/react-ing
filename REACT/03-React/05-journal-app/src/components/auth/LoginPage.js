@@ -4,24 +4,28 @@ import { Link } from 'react-router-dom';
 export const LoginPage = () => {
 	return (
 		<>
-			<h1>Iniciar Sesión</h1>
+			<h1 className="auth__title">Iniciar Sesión</h1>
 
 			<form>
-				<input type="text" placeholder="lorem@ipsum.com" name="email" />
-				<input type="password" placeholder="*******" name="password" />
+				<label>Correo:</label>
+				<input type="text" placeholder="lorem@ipsum.com" name="email" className="auth__input" autoComplete="off" />
 
-				<button type="submit">Login</button>
+				<label>Contraseña:</label>
+				<input type="password" placeholder="*******" name="password" className="auth__input" autoComplete="off" />
 
-				<hr />
+				<button className="btn btn-primary btn-block" type="submit" disabled={false}>
+					Login
+				</button>
 
-				<div>
-					<p>o</p>
+				<hr className="auth__separator" />
+
+				<div className="auth__social-networks">
 					<div className="google-btn">
 						<div className="google-icon-wrapper">
 							<img
 								className="google-icon"
 								src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
-								alt="google button"
+								alt="Google"
 							/>
 						</div>
 						<p className="btn-text">
