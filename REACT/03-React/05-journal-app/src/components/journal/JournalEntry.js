@@ -6,8 +6,8 @@ export const JournalEntry = () => {
 			<div
 				className="journal__entry-picture"
 				style={{
-					backgroundSize: 'cover',
-					backgroundImage: 'url(http://www.infoconsolas.com/wp-content/uploads/image00738.png)',
+					backgroundSize: '100% 100%',
+					backgroundImage: 'url(https://cdn.pixabay.com/photo/2013/07/12/14/08/drawing-pin-147814_960_720.png)',
 				}}
 			></div>
 
