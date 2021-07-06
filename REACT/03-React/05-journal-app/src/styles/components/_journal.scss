@@ -24,7 +24,6 @@
 
 .journal__new-entry {
 	align-items: center;
-	cursor: pointer;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -61,13 +60,16 @@
 .journal__entry-body {
 	padding: 10px;
 }
+
 .journal__entry-title {
 	font-size: 14px;
 	font-weight: bold;
 }
+
 .journal__entry-content {
 	font-size: 12px;
 }
+
 .journal__entry-date-box {
 	align-items: center;
 	display: flex;
