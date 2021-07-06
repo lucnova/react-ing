@@ -12,3 +12,39 @@
 	justify-content: space-between;
 	padding: 10px 20px 10px 20px;
 }
+
+.notepage__content {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	padding: 20px;
+}
+
+.notepage__title,
+.notepage__textarea {
+	border: none;
+
+	&:focus {
+		outline: none;
+	}
+}
+
+.notepage__title {
+	color: $dark-gray;
+	font-size: 25px;
+	font-weight: 700;
+	margin-bottom: 10px;
+}
+
+.notepage__textarea {
+	border: none;
+	color: $dark-gray;
+	font-size: 20px;
+	flex: 1 1 auto;
+	resize: none;
+}
+
+.notepage__image img {
+    box-shadow: 5px 5px $dark-gray;
+    height: 150px;
+}
