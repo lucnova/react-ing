@@ -10,4 +10,6 @@ const reducers = combineReducers({
 	auth: authReducer,
 });
 
-export const store = createStore(reducers);
+// * Redux DevTools -> window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+// * NOTA: Falta una config adicional pero hasta que no quede todo lo demás no se agregara. (compose enhancers)
+export const store = createStore(reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
