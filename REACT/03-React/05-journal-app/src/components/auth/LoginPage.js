@@ -1,16 +1,61 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+// * Redux Dispatcher
+import { useDispatch } from 'react-redux';
+// * Auth: Login Action
+import { login } from '../../actions/auth';
+// * useForm Custom Hook
+import { useForm } from '../../hooks/useForm';
 
 export const LoginPage = () => {
+	// * Crear el dispatcher de Redux
+	const dispatch = useDispatch();
+
+	// * Establecer Datos del hook useForm
+	const [formValues, handleInputChange] = useForm({
+		email: '',
+		password: '',
+	});
+
+	// * Desestructurar valores del hook
+	const { email, password } = formValues;
+
+	// *---------------------------------------- HANDLES ----------------------------------------*
+	const handleLogin = (e) => {
+		e.preventDefault();
+
+		console.log(email, password);
+        // * Llamar al dispatcher de Redux:
+		dispatch(login('123', 'lucnova'));
+	};
+
+	// *---------------------------------------- INICIO ----------------------------------------*
 	return (
 		<>
 			<h1 className="auth__title">Iniciar Sesión</h1>
 
-			<form>
-				<input type="text" placeholder="Correo" name="email" className="auth__input" autoComplete="off" />
-				<input type="password" placeholder="Contraseña" name="password" className="auth__input" autoComplete="off" />
+			<form onSubmit={handleLogin}>
+				<input
+					type="text"
+					placeholder="Correo"
+					name="email"
+					className="auth__input"
+					autoComplete="off"
+					value={email}
+					onChange={handleInputChange}
+				/>
 
-				<button className="btn btn-primary btn-block" type="submit" disabled={true}>
+				<input
+					type="password"
+					placeholder="Contraseña"
+					name="password"
+					className="auth__input"
+					autoComplete="off"
+					value={password}
+					onChange={handleInputChange}
+				/>
+
+				<button className="btn btn-primary btn-block" type="submit" disabled={false}>
 					Iniciar Sesión
 				</button>
 
@@ -31,7 +76,9 @@ export const LoginPage = () => {
 					</div>
 				</div>
 
-				<Link to="/auth/register" className="link">Registrarse</Link>
+				<Link to="/auth/register" className="link">
+					Registrarse
+				</Link>
 			</form>
 		</>
 	);
