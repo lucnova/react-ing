@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 // * Redux Dispatcher
 import { useDispatch } from 'react-redux';
 // * Auth: Login Action
-import { login } from '../../actions/auth';
+import { loginEmailAndPassword } from '../../actions/auth';
 // * useForm Custom Hook
 import { useForm } from '../../hooks/useForm';
 
@@ -25,8 +25,8 @@ export const LoginPage = () => {
 		e.preventDefault();
 
 		console.log(email, password);
-        // * Llamar al dispatcher de Redux:
-		dispatch(login('123', 'lucnova'));
+		// * Llamar al dispatcher de Redux:
+		dispatch(loginEmailAndPassword(email, password));
 	};
 
 	// *---------------------------------------- INICIO ----------------------------------------*
